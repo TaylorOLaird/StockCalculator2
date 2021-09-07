@@ -193,11 +193,79 @@ public class StockCalculator2 {
 	// 	}
 	// 	System.out.println("\n======================================================================================\n");
 	// }
+
+	private void uiLoop() {
+		Boolean uiRunning = true;
+		Boolean portfolioLoaded = false;
+		while (uiRunning) {
+			clearScreen();
+			System.out.println("===========================================================");
+			System.out.println("\t1: Load file\n\t2: Save file\n\t3: Add stock");
+			System.out.println("\t4: Print portfolio\n\t5: Run prediction");
+			System.out.println("\t6: exit");
+			System.out.println("===========================================================");
+
+			Scanner sc = new Scanner(System.in);
+			int userInput = sc.nextInt();
+
+			switch(userInput) {
+				case 1:
+					System.out.println("do load file stuff");
+					wait(500);
+					break;
+				case 2:
+					System.out.println("do save file stuff");
+					wait(500);
+					break;
+				case 3:
+					System.out.println("do add stock stuff");
+					wait(500);
+					break;
+				case 4:
+					System.out.println("do print portfolio stuff");
+					wait(500);
+					break;
+				case 5:
+					System.out.println("do run prediction stuff");
+					wait(500);
+					break;
+				case 6:
+					System.out.println("do exit stuff");
+					wait(500);
+					uiRunning = false;
+					break;
+				default:
+					System.out.println("do invalid input stuff");
+			}
+
+			// while loop
+		}
+		System.out.println("Good Bye...");
+		return;
+	}
+
+	// Source: https://stackoverflow.com/a/32295974
+	public static void clearScreen() {  
+		System.out.print("\033[H\033[2J");  
+		System.out.flush();  
+	}
+
+	// Source: https://stackoverflow.com/a/57567069
+	public static void wait(int ms) {
+		try {
+			Thread.sleep(ms);
+		}
+		catch(InterruptedException ex) {
+			Thread.currentThread().interrupt();
+		}
+	}
+
 	public static void main(String[] args) {
 		// if (args.length < 3) System.out.println("proper syntax: java StockCalculator <savings> <divRate> <addedSavings>");
 		// else printInvestment(Float.parseFloat(args[0]), Float.parseFloat(args[1]), Float.parseFloat(args[2]));
 		// return;
-
+		StockCalculator2 portfolio1 = new StockCalculator2();
+		portfolio1.uiLoop();
 		return;
 	}
 }
