@@ -30,6 +30,53 @@ class Stock {
 				"\n\tDividend Frequency per Year: " + this.divFreqPerYear +
 				"\n\tCompounding: " + this.compounding;
 	}
+
+	public setName void(String name) {
+		this.name = name;
+		return;
+	}
+
+	public setTicker void(String ticker) {
+		this.ticker = ticker;
+		return;
+	}
+
+	public setDivYield void(float divYield) {
+		if (divYield <= 0)
+			System.out.println("invalid divYield, must be a positive float value");
+		else
+			this.ticker = ticker;
+		return;
+	}
+
+	public setDivFreqPerYear void(int divFreqPerYear) {
+		if (divFreqPerYear < 0)
+			System.out.println("invalid divFreqPerYear, must be a non-negative int value");
+		else
+			this.divFreqPerYear = divFreqPerYear;
+		return;
+	}
+
+	public setCompounding void(Boolean compounding) {
+		this.compounding = compounding;
+		return;
+	}
+
+	public setAmountOwned void(float amountOwned) {
+		if (amountOwned < 0)
+			System.out.println("invalid amountOwned, must be a non-negative float value");
+		else
+			this.amountOwned = amountOwned;
+		return;
+	}
+
+	public setQuantityOwned void(float quantityOwned) {
+		if (quantityOwned < 0)
+			System.out.println("invalid quantityOwned, must be a non-negative float value");
+		else
+			this.quantityOwned = quantityOwned;
+		return;
+	}
 }
 
 class SortByName implements Comparator<Stock> {
@@ -94,8 +141,10 @@ public class StockCalculator2 {
 	// 	System.out.println("\n======================================================================================\n");
 	// }
 	public static void main(String[] args) {
-		if (args.length < 3) System.out.println("proper syntax: java StockCalculator <savings> <divRate> <addedSavings>");
-		else printInvestment(Float.parseFloat(args[0]), Float.parseFloat(args[1]), Float.parseFloat(args[2]));
-		return;
+		// if (args.length < 3) System.out.println("proper syntax: java StockCalculator <savings> <divRate> <addedSavings>");
+		// else printInvestment(Float.parseFloat(args[0]), Float.parseFloat(args[1]), Float.parseFloat(args[2]));
+		// return;
+
+
 	}
 }
