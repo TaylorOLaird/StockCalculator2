@@ -77,6 +77,34 @@ class Stock {
 			this.quantityOwned = quantityOwned;
 		return;
 	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public String getTicker() {
+		return this.ticker;
+	}
+
+	public float getDivYield() {
+		return this.divYield;
+	}
+
+	public int getDivFreqPerYear() {
+		return this.divFreqPerYear;
+	}
+
+	public Boolean getCompounding() {
+		return this.compounding;
+	}
+
+	public float getAmountOwned() {
+		return this.amountOwned;
+	}
+
+	public float getQuantityOwned() {
+		return this.quantityOwned;
+	}
 }
 
 class SortByName implements Comparator<Stock> {
@@ -121,6 +149,17 @@ class SortByAmountOwned implements Comparator<Stock> {
 class SortByQuantityOwned implements Comparator<Stock> {
 	public int compare(Stock a, Stock b) {
 		return a.quantityOwned - b.quantityOwned;
+	}
+}
+
+class StockPortfolio {
+	ArrayList<Stock> portfolio;
+	public StockPortfolio (){
+		this.portfolio = new ArrayList<Stock>();
+	}
+
+	public String toString() {
+		return 
 	}
 }
 
