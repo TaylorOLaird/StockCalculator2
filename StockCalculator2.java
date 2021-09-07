@@ -14,14 +14,14 @@ class Stock {
 	private float amountOwned;
 	private float quantityOwned;
 
-	public Stock (){
+	public Stock() {
 		this.name = "default_Stock_name";
 		this.ticker = "default_Stock_ticker";
-		this.divYield = 0.0;
+		this.divYield = (float)0.0;
 		this.divFreqPerYear = 0;
 		this.compounding = false;
-		this.amountOwned = 0.0;
-		this.quantityOwned = 0.0;
+		this.amountOwned = (float)0.0;
+		this.quantityOwned = (float)0.0;
 	}
 
 	public String toString() {
@@ -31,17 +31,17 @@ class Stock {
 				"\n\tCompounding: " + this.compounding;
 	}
 
-	public setName void(String name) {
+	public void setName(String name) {
 		this.name = name;
 		return;
 	}
 
-	public setTicker void(String ticker) {
+	public void setTicker(String ticker) {
 		this.ticker = ticker;
 		return;
 	}
 
-	public setDivYield void(float divYield) {
+	public void setDivYield(float divYield) {
 		if (divYield <= 0)
 			System.out.println("invalid divYield, must be a positive float value");
 		else
@@ -49,7 +49,7 @@ class Stock {
 		return;
 	}
 
-	public setDivFreqPerYear void(int divFreqPerYear) {
+	public void setDivFreqPerYear(int divFreqPerYear) {
 		if (divFreqPerYear < 0)
 			System.out.println("invalid divFreqPerYear, must be a non-negative int value");
 		else
@@ -57,12 +57,12 @@ class Stock {
 		return;
 	}
 
-	public setCompounding void(Boolean compounding) {
+	public void setCompounding(Boolean compounding) {
 		this.compounding = compounding;
 		return;
 	}
 
-	public setAmountOwned void(float amountOwned) {
+	public void setAmountOwned(float amountOwned) {
 		if (amountOwned < 0)
 			System.out.println("invalid amountOwned, must be a non-negative float value");
 		else
@@ -70,7 +70,7 @@ class Stock {
 		return;
 	}
 
-	public setQuantityOwned void(float quantityOwned) {
+	public void setQuantityOwned(float quantityOwned) {
 		if (quantityOwned < 0)
 			System.out.println("invalid quantityOwned, must be a non-negative float value");
 		else
@@ -109,32 +109,36 @@ class Stock {
 
 class SortByName implements Comparator<Stock> {
 	public int compare(Stock a, Stock b) {
-		return a.name.compareTo(b.name);
+		return a.getName().compareTo(b.getName());
 	}
 }
 
 class SortByTicker implements Comparator<Stock> {
 	public int compare(Stock a, Stock b) {
-		return a.ticker.compareTo(b.ticker);
+		return a.getTicker().compareTo(b.getTicker());
 	}
 }
 
 class SortByDividendYield implements Comparator<Stock> {
 	public int compare(Stock a, Stock b) {
-		return a.divYield - b.divYield;
+		if (a.getDivYield() - b.getDivYield() > 0)
+			return 1;
+		else if (a.getDivYield() - b.getDivYield() < 0)
+			return -1;
+		return 0;
 	}
 }
 
 class SortByDividendFrequency implements Comparator<Stock> {
 	public int compare(Stock a, Stock b) {
-		return a.divFreqPerYear - b.divFreqPerYear;
+		return a.getDivFreqPerYear() - b.getDivFreqPerYear();
 	}
 }
 
 class SortByCompounding implements Comparator<Stock> {
 	public int compare(Stock a, Stock b) {
-		int boolA = a.divFreqPerYear ? 1 : 0;
-        int boolB = b.divFreqPerYear ? 1 : 0;
+		int boolA = a.getCompounding() ? 1 : 0;
+        int boolB = b.getCompounding() ? 1 : 0;
 
         return boolB - boolA;
 	}
@@ -142,25 +146,35 @@ class SortByCompounding implements Comparator<Stock> {
 
 class SortByAmountOwned implements Comparator<Stock> {
 	public int compare(Stock a, Stock b) {
-		return a.amountOwned - b.amountOwned;
+		if (a.getAmountOwned() - b.getAmountOwned() > 0)
+			return 1;
+		else if (a.getAmountOwned() - b.getAmountOwned() < 0)
+			return -1;
+		return 0;
 	}
 }
 
 class SortByQuantityOwned implements Comparator<Stock> {
 	public int compare(Stock a, Stock b) {
-		return a.quantityOwned - b.quantityOwned;
+		if (a.getQuantityOwned() - b.getQuantityOwned() > 0)
+			return 1;
+		else if (a.getQuantityOwned() - b.getQuantityOwned() < 0)
+			return -1;
+		return 0;
 	}
 }
 
 class StockPortfolio {
-	ArrayList<Stock> portfolio;
-	public StockPortfolio (){
+	private String name;
+	private ArrayList<Stock> portfolio;
+	public StockPortfolio (String name){
+		this.name = name;
 		this.portfolio = new ArrayList<Stock>();
 	}
 
-	public String toString() {
-		return 
-	}
+	// public String toString() {
+	// 	return 
+	// }
 }
 
 public class StockCalculator2 {
@@ -184,6 +198,6 @@ public class StockCalculator2 {
 		// else printInvestment(Float.parseFloat(args[0]), Float.parseFloat(args[1]), Float.parseFloat(args[2]));
 		// return;
 
-
+		return;
 	}
 }
